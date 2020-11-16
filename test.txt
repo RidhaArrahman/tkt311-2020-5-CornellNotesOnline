@@ -1,6 +1,5 @@
 file test.txt
 Ridha Arrahman 1804111010023
-file test.txt
 Muhammad Rizky Alfi Husni 1804111010054
-file test.txt
 Riski rahmat Rani 1804111010025
+Muhammad Fariz Anhar 1804111010042
