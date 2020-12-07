@@ -1,2 +1,0 @@
-file test.txt
-Ridha Arrahman 1804111010023
