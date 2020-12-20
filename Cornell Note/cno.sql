@@ -1,59 +1,160 @@
--- MariaDB dump 10.17  Distrib 10.4.15-MariaDB, for Linux (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.0.3
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: cno
--- ------------------------------------------------------
--- Server version	10.4.15-MariaDB
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 20 Des 2020 pada 18.55
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.2.34
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user`
+-- Database: `cno`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `cornell`
+--
+
+CREATE TABLE `cornell` (
+  `id` int(11) NOT NULL,
+  `materi` varchar(255) NOT NULL,
+  `dates` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `course`
+--
+
+CREATE TABLE `course` (
+  `id` int(11) NOT NULL,
+  `course` varchar(255) NOT NULL,
+  `des` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `course`
+--
+
+INSERT INTO `course` (`id`, `course`, `des`) VALUES
+(1, 'RPL', 'ww'),
+(11, 'HCI', 'www'),
+(12, 'w', 'w');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `list_course`
+--
+
+CREATE TABLE `list_course` (
+  `id` int(11) NOT NULL,
+  `course` varchar(255) NOT NULL,
+  `nama_user` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `list_course`
+--
+
+INSERT INTO `list_course` (`id`, `course`, `nama_user`) VALUES
+(7, 'RPL', 'Ridha@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
 CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
   `nama_user` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `npm` varchar(255) NOT NULL,
   `fct` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_user`)
-)  ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+  `kelas` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-DROP TABLE IF EXISTS `course`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `course` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `course` varchar(255) NOT NULL,
-  `des` varchar(500) NOT NULL,
-  PRIMARY KEY (`id`)
-)  ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 --
--- Dumping routines for database 'cno'
+-- Dumping data untuk tabel `user`
 --
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+INSERT INTO `user` (`id_user`, `nama_user`, `username`, `email`, `password`, `npm`, `fct`, `kelas`) VALUES
+(1, 'Ridha', 'Ridha', 'Ridha@gmail.com', 'wwww', '18', '22', NULL),
+(3, 'Aditya', 'Aditya', 'ww', 'wwwwwwww', 'npm', 'Teknik', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `cornell`
+--
+ALTER TABLE `cornell`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `course`
+--
+ALTER TABLE `course`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `list_course`
+--
+ALTER TABLE `list_course`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `cornell`
+--
+ALTER TABLE `cornell`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `course`
+--
+ALTER TABLE `course`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `list_course`
+--
+ALTER TABLE `list_course`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-12-07  3:06:49
