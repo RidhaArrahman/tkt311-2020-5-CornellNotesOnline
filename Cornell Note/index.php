@@ -1,88 +1,6 @@
-<head>
-    <title>Conell Notes Online</title>
-    <?php include '../partial/head.php';
-        include 'koneksi.php';
-        include '../partial/js.php';
-    ?>
-</head>
- <script src="checkbox/js/checkbox2button.min.js"></script>
-<link rel="stylesheet" href="checkbox/css/checkbox2button.css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<body class="home">
-    <div class="container-fluid display-table">
-        <div class="row display-table-row">
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                <div class="logo">
-                    <a hef="home.html"><img src="http://jskrishna.com/work/merkury/images/logo.png" alt="unsyiah_logo" class="hidden-xs hidden-sm">
-                        <img src="http://jskrishna.com/work/merkury/images/circle-logo.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
-                    </a>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                        <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Arsip</span></a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-10 col-sm-11 display-table-cell v-align">
-                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
-                <div class="row">
-                    <header>
-                        <div class="col-md-7">
-                            <nav class="navbar-default pull-left">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-                            </nav>
-                            <div class="search hidden-xs hidden-sm">
-                                <input type="text" placeholder="Search" id="search">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="header-rightside">
-                                <ul class="list-inline header-top pull-right">
-                                    <li class="hidden-xs"><a href="#" class="add-project" data-toggle="modal" data-target="#add_project">Tambah Matakuliah</a></li>
-                                    <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-                                    <li>
-                                        <a href="#" class="icon-info">
-                                            <i class="fa fa-bell" aria-hidden="true"></i>
-                                            <span class="label label-primary">3</span>
-                                        </a>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://jskrishna.com/work/merkury/images/user-pic.jpg" alt="user">
-                                            <b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                            <li>
-                                                <div class="navbar-content">
-                                                    <span>User</span>
-                                                    <p class="text-muted small">
-                                                        User@gmail.com
-                                                    </p>
-                                                    <div class="divider">
-                                                    </div>
-                                                    <a href="#" class="view btn-sm active">View Profile</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </header>
-                </div>
+<?php 
+    include 'partial/head.php';
+?>
                 <div class="user-dashboard">
                     <h1>Hai, User</h1>
                     <div class="row">
@@ -110,20 +28,29 @@
                                                         // print_r($_GET);
                     $sql = "SELECT * FROM course ";
                     $query = mysqli_query($koneksi, $sql);
+                    $count = 0;
                     while ($data = mysqli_fetch_array($query)) {
                      ?>
-
-                    <div class="row">
+                     
+                    <div id="box<?php echo $count ?>" class="row" style="cursor: pointer;">
                         <div class="col-xs-12 ">
-                        <div class="sales">
+                        <div class="sales" style=" transition: 0.3s;" onmouseover="this.style.background='#a0abbe'; this.style.color='white'; this.style.opacity='1';" onmouseout="this.style.background='white';this.style.color='black'; this.style.opacity='0.6';">
+                            <a style="display: none;" href="room.php?course=<?php echo $data['course'] ?>"></a>
                             <h3><?php echo $data['course'] ?></h3>
                             <button id="mahasiswa" dataid="<?php echo $data['course'] ?>" class="float-right" data-toggle="modal" >Tambah Mahasiswa</button>
                             <button id="list" dataids="<?php echo $data['course'] ?>" class="float-right" data-toggle="modal" >Daftar Mahasiswa</button>
                         </div>
                     </div>
                      </div>
-                    
-                 <?php }?>
+                    <script type="text/javascript">
+                         $("#box<?php echo $count ?>").click(function() {
+                          window.location = $(this).find("a").attr("href"); 
+                          return false;
+                        });
+                     </script>
+                 <?php 
+                 $count +=1;
+             }?>
                 </div>
             </div>
         </div>
