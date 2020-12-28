@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<!-- Website CSS style -->
+
+		<!-- Website Font style -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" href="style.css">
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		<link href="bootstrap/bootstrap_regis.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <link href="bootstrap/bootstrap.css" rel="stylesheet" type="text/css" />
+		<title>Admin</title>
+	</head>
+	
+	<body>
+	<script type="text/javascript">
+		$('#level').on('change','input[type="radio"].toggle',function(){
+			if(this.checked){
+				$('input[name="' + this.name + '"].checked').removeClass('checked');
+				$(this).addClass('checked');
+				$('.toggle-container').addClass('xyz').removeClass('xyz');
+			}
+		});
+		$('.#level input[type="radio"].toggle:checked').addClass('checked');
+	</script>
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h5>Pendaftaran Akun di Cornell Notes Online</h5>
+					<form class="" method="post" action="daftar.php">
+						
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">Nama Lengkap</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Nama"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="@unsyiah.ac.id"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="npm" class="cols-sm-2 control-label">NPM / NIP</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="npm" id="npm"  placeholder="NPM / NIP"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" id="password"  placeholder="Password"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="confirm" class="cols-sm-2 control-label">Konfirmasi Password Anda</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Konfirmasi Password"/>
+								</div>
+								<label class="anim">
+                                   <input type="checkbox" class="checkbox" required="">
+                                   <span>Saya Menyetujui Syarat & Ketentuan yang berlaku</span>
+                                 </label>
+							</div>
+						</div>
+						<div style="text-align: center;">
+							<div id="level" class="btn-group btn-group-toggle" data-toggle="buttons">
+							
+								<label class="btn btn-primary" for="radio">
+								<input  type="radio" name="mahasiswa" value="Mahasiswa">
+								Mahasiswa
+								</label>
+								<label class="btn btn-primary" for="radio">
+								<input type="radio" name="dosen" value="dosen">
+								Dosen
+								</label>
+							</div>
+							</div>
+						<div class="form-group ">
+							<button type="POST" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Daftar</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+	</body>
+</html>
